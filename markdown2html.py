@@ -22,12 +22,11 @@ def convert_md_to_html(input_file, output_file):
         match = re.match(r'(#){1,6} (.*)', line)
         if match:
             # get th header level
-            heading_level = len(match.group(1))
+            h_level = len(match.group(1))
             # Get the contents of the heading
-            heading_content = match.group(2)
+            h_content = match.group(2)
             # The append the HTML equivalent of the heading
-            html_file.append(f'< h{heading_level} >
-                             {heading_content} < /h{heading_level} >\n')
+            html_file.append(f'<h{h_level}>{h_content}</h{h_level}>\n')
         else:
             html_file.append(line)
 
